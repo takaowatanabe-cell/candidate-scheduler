@@ -222,6 +222,55 @@ h2{
    textarea#output{
   box-shadow: 0 8px 18px rgba(15,23,42,.06) !important;
 }
+/* =========================
+   Fix remaining dark blocks
+   ========================= */
+
+/* 月移動ボタン（左右の矢印） */
+#prevBtn, #nextBtn{
+  background: #ffffff !important;
+  color: var(--fg) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+/* 「日付を選択してください」下の操作ボタン群（終日/午前/午後/時間を選ぶ/クリア） */
+#modeAllDay, #modeAM, #modePM, #modeTimes, #clearActive{
+  background: #ffffff !important;
+  color: var(--fg) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+/* 選択状態のボタンだけ tebikiブルーに（primary扱いと同等に） */
+#modeAllDay.primary, #modeAM.primary, #modePM.primary, #modeTimes.primary{
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark)) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+/* 「全リセット」ボタン（黒塗り対策） */
+#resetBtn{
+  background: #ffffff !important;
+  color: var(--fg) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+/* 「コピーは Ctrl + C 不要」の黒い四角（kbd） */
+.kbd{
+  background: #ffffff !important;
+  color: var(--fg) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+/* 念のため：小ボタン全般の黒塗り除去（副作用少なめ） */
+.btn.small{
+  background: #ffffff !important;
+  color: var(--fg) !important;
+  border: 1px solid var(--line) !important;
+}
 
   </style>
 </head>
@@ -626,6 +675,7 @@ h2{
 </script>
 </body>
 </html>
+
 
 
 
