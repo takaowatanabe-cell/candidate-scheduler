@@ -167,7 +167,7 @@
 }
  /* =========================
    Final readability + overflow fix
-   ※ <style> の一番最後に追記
+   ※ <> の一番最後に追記
 ========================= */
 
 /* 全体：幅計算を安定させる（はみ出し対策の核心） */
@@ -271,6 +271,52 @@ h2{
   color: var(--fg) !important;
   border: 1px solid var(--line) !important;
 }
+/* =========================
+   Selected/Active state fix
+   ========================= */
+
+/* カレンダー：選択中の日付（黒塗りをtebikiへ） */
+.day.selected,
+.day.active,
+.day.is-selected,
+.day.on{
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark)) !important;
+  border-color: rgba(37,99,235,.75) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 2px rgba(59,130,246,.25) inset !important;
+}
+
+/* カレンダー：ホバーも視認性UP */
+.day.selected:hover,
+.day.active:hover,
+.day.is-selected:hover,
+.day.on:hover{
+  filter: brightness(1.06) !important;
+}
+
+/* 右側：時間ボタン（黒いON状態をtebikiへ） */
+.chip.on,
+.time.on,
+.time.selected,
+.time.active,
+.time.is-selected,
+.btn.on{
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark)) !important;
+  border-color: rgba(37,99,235,.75) !important;
+  color: #ffffff !important;
+}
+
+/* 右側：時間ボタンの通常状態（黒塗り残り対策） */
+.chip,
+.time{
+  background: #ffffff !important;
+  border: 1px solid var(--line) !important;
+  color: var(--fg) !important;
+}
+
+/* 右側：時間のテキストが黒背景に埋もれない保険 */
+.chip.on, .time.on{
+  text-shadow: 0 1
 
   </style>
 </head>
@@ -675,6 +721,7 @@ h2{
 </script>
 </body>
 </html>
+
 
 
 
