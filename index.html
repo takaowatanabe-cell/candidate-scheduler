@@ -165,7 +165,64 @@
 .day .mark{
   color: #ffffff !important;
 }
-    
+ /* =========================
+   Final readability + overflow fix
+   ※ <style> の一番最後に追記
+========================= */
+
+/* 全体：幅計算を安定させる（はみ出し対策の核心） */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+/* gridの子要素が横幅不足で溢れるのを防ぐ */
+.grid > *{
+  min-width: 0;
+}
+
+/* カード内でのはみ出しを保険で止める */
+.card{
+  overflow: hidden;
+}
+
+/* 出力欄：黒い塗りつぶしをやめ、白背景で可読性を確保 */
+textarea#output{
+  width: 100% !important;
+  max-width: 100% !important;
+
+  background: #ffffff !important;
+  color: var(--fg) !important;
+
+  border: 1px solid var(--line) !important;
+  border-radius: 12px;
+
+  padding: 14px !important;
+
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+
+/* 右下のリサイズつまみで横に溢れないように */
+textarea{
+  resize: vertical !important;
+}
+
+/* 出力欄の見出し周りも読みやすく */
+h2{
+  color: var(--fg) !important;
+}
+.toast, .hint, .muted{
+  color: var(--muted) !important;
+}
+
+/* コピーボタン周りの行が狭いとき折り返す（右はみ出し防止） */
+.row{
+  flex-wrap: wrap;
+}
+   textarea#output{
+  box-shadow: 0 8px 18px rgba(15,23,42,.06) !important;
+}
+
   </style>
 </head>
 <body>
@@ -569,6 +626,7 @@
 </script>
 </body>
 </html>
+
 
 
 
