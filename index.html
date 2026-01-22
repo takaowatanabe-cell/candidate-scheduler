@@ -33,21 +33,17 @@
     .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
     .btn { border:1px solid var(--line); background:#0f1624; color:var(--fg); padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px; }
     .btn:hover { border-color:#2f4466; }
-    .btn.primary{
-  background: linear-gradient(
-    180deg,
-    var(--primary),
-    var(--primary-dark)
-  );
-      .btn.primary:hover{
-  filter: brightness(1.05);
-}
+.btn.primary{
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
   color:#ffffff;
   border:none;
   font-weight:600;
   box-shadow: 0 6px 18px rgba(37,99,235,.35);
 }
- }
+.btn.primary:hover{
+  filter: brightness(1.05);
+}
+
     .btn.danger { background: rgba(255,80,80,.08); border-color: rgba(255,80,80,.35); }
     .btn.small { padding:6px 8px; border-radius:9px; font-size:12px; }
     .pill { display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border:1px solid var(--line); border-radius:999px; background:#0f1624; color:var(--fg); font-size:12px; }
@@ -314,9 +310,6 @@ h2{
   color: var(--fg) !important;
 }
 
-/* 右側：時間のテキストが黒背景に埋もれない保険 */
-.chip.on, .time.on{
-  text-shadow: 0 1
 #selectedDates .pill,
 #selectedDates .chip,
 #selectedDates .tag,
@@ -376,6 +369,16 @@ div#selectedPills > span.pill b{
   color: #0f172a !important;
 }
 #selectedPills span.pill{ background:#fff !important; }
+/* selected pills: force light */
+#selectedPills .pill{
+  background:#ffffff !important;
+  color:#0f172a !important;
+  border:1px solid #e2e8f0 !important;
+  box-shadow: 0 6px 14px rgba(15,23,42,.06) !important;
+}
+#selectedPills .pill b{
+  color:#0f172a !important;
+}
 
   </style>
 </head>
@@ -780,6 +783,7 @@ div#selectedPills > span.pill b{
 </script>
 </body>
 </html>
+
 
 
 
