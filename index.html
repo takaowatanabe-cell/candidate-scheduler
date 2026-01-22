@@ -6,24 +6,28 @@
   <title>スケジュール調整くん | Tebiki</title>
   <style>
     :root {
-  --bg:#0b0f17;
-  --card:#121a27;
+  --bg: #f8fafc;      /* 全体背景（ほぼ白） */
+  --card: #ffffff;   /* カード背景（真っ白） */
 
-  /* === tebiki brand color === */
-  --primary:#3B82F6;          /* tebikiブルー（メイン） */
-  --primary-dark:#2563EB;     /* 濃いめ（ヘッダー影用） */
+  --primary:#3B82F6;
+  --primary-dark:#2563EB;
 
-  /* === text === */
-  --fg:#F9FAFB;               /* 見出し・強調 */
-  --fg-sub:#E5E7EB;           /* 通常テキスト（白寄りグレー） */
-  --muted:#CBD5E1;            /* 補助テキスト */
-
-  --line:#22314a;
+  --fg:#0f172a;       /* 見出し文字（濃紺） */
+  --fg-sub:#334155;   /* 本文文字 */
+  --muted:#64748b;    /* 補助テキスト */
+  --line:#e2e8f0;
 }
-    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif; background:var(--bg); color:var(--fg-sub); }
+
+    body {
+  background: var(--bg);
+}
     .wrap { max-width:1100px; margin:24px auto; padding:0 16px; }
     .grid { display:grid; grid-template-columns: 420px 1fr; gap:16px; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow: 0 8px 30px rgba(0,0,0,.25); color:var(--fg-sub); }
+    .card{
+  background: var(--card);
+  border:1px solid var(--line);
+  box-shadow: 0 6px 18px rgba(15,23,42,.08);
+}
     h1 { font-size:18px; margin:0 0 12px; }
     h2 { font-size:14px; margin:0 0 10px; color:var(--muted); font-weight:600; }
     .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
@@ -119,10 +123,10 @@
 <body>
   <div class="wrap">
     <header class="app-header">
-  < class="app-title">
+  <h1 class="app-title">
     スケジュール調整くん
     <span class="app-sub">（9:00〜19:00 / 30分刻み / 午前・午後・終日対応）</span>
-  </>
+  </h1>
 </header>
 
     <div class="grid">
@@ -517,6 +521,7 @@
 </script>
 </body>
 </html>
+
 
 
 
