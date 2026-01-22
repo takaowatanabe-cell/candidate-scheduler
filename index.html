@@ -117,7 +117,55 @@
   h1, h2, h3, h4{
   color: var(--fg);
 }
+/* =========================
+   Calendar Color Adjustment
+   ========================= */
 
+/* 共通：日付文字は白 */
+.day{
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* グレーの箱（無効日・前後月など）はそのまま */
+.day.off{
+  background: #d1d5db !important;   /* 既存グレー維持 */
+  border-color: #cbd5e1 !important;
+  color: #ffffff !important;
+  opacity: .9;
+}
+
+/* 通常の日付（いま黒く見えている箱）を tebikiカラーに */
+.day:not(.off){
+  background: linear-gradient(
+    180deg,
+    var(--primary),
+    var(--primary-dark)
+  ) !important;
+  border-color: rgba(37,99,235,.65) !important;
+}
+
+/* hover（少しだけ明るく） */
+.day:not(.off):hover{
+  filter: brightness(1.08);
+}
+
+/* 選択中の日付（tebikiカラーを少し強調） */
+.day.selected{
+  background: linear-gradient(
+    180deg,
+    var(--primary-dark),
+    #1d4ed8
+  ) !important;
+  border-color: #1e40af !important;
+  box-shadow: 0 0 0 2px rgba(59,130,246,.35) inset;
+}
+
+/* 選択マーク（●）は白で */
+.day .mark{
+  color: #ffffff !important;
+}
+    
   </style>
 </head>
 <body>
@@ -521,6 +569,7 @@
 </script>
 </body>
 </html>
+
 
 
 
