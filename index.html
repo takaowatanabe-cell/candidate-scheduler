@@ -317,6 +317,15 @@ h2{
 /* 右側：時間のテキストが黒背景に埋もれない保険 */
 .chip.on, .time.on{
   text-shadow: 0 1
+#selectedDates .pill,
+#selectedDates .chip,
+#selectedDates .tag,
+#selectedDates span{
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark)) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 8px 18px rgba(37,99,235,.18) !important;
+}
 
   </style>
 </head>
@@ -721,6 +730,7 @@ h2{
 </script>
 </body>
 </html>
+
 
 
 
