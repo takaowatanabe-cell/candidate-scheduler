@@ -5,23 +5,51 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>スケジュール調整くん | Tebiki</title>
   <style>
-    :root { --bg:#0b0f17; --card:#121a27; --muted:#93a4bf; --fg:#e7eefc; --line:#22314a; --accent:#4ea1ff; }
-    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif; background:var(--bg); color:var(--fg); }
+    :root {
+  --bg:#0b0f17;
+  --card:#121a27;
+
+  /* === tebiki brand color === */
+  --primary:#3B82F6;          /* tebikiブルー（メイン） */
+  --primary-dark:#2563EB;     /* 濃いめ（ヘッダー影用） */
+
+  /* === text === */
+  --fg:#F9FAFB;               /* 見出し・強調 */
+  --fg-sub:#E5E7EB;           /* 通常テキスト（白寄りグレー） */
+  --muted:#CBD5E1;            /* 補助テキスト */
+
+  --line:#22314a;
+}
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif; background:var(--bg); color:var(--fg-sub); }
     .wrap { max-width:1100px; margin:24px auto; padding:0 16px; }
     .grid { display:grid; grid-template-columns: 420px 1fr; gap:16px; }
-    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow: 0 8px 30px rgba(0,0,0,.25); color:var(--fg-sub); }
     h1 { font-size:18px; margin:0 0 12px; }
     h2 { font-size:14px; margin:0 0 10px; color:var(--muted); font-weight:600; }
     .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
     .btn { border:1px solid var(--line); background:#0f1624; color:var(--fg); padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px; }
     .btn:hover { border-color:#2f4466; }
-    .btn.primary { background: linear-gradient(180deg, rgba(78,161,255,.22), rgba(78,161,255,.08)); border-color: rgba(78,161,255,.4); }
+    .btn.primary{
+  background: linear-gradient(
+    180deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+      .btn.primary:hover{
+  filter: brightness(1.05);
+}
+  color:#ffffff;
+  border:none;
+  font-weight:600;
+  box-shadow: 0 6px 18px rgba(37,99,235,.35);
+}
+ }
     .btn.danger { background: rgba(255,80,80,.08); border-color: rgba(255,80,80,.35); }
     .btn.small { padding:6px 8px; border-radius:9px; font-size:12px; }
     .pill { display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border:1px solid var(--line); border-radius:999px; background:#0f1624; color:var(--fg); font-size:12px; }
     .pill b { font-weight:700; }
     .muted { color:var(--muted); }
-    textarea { width:100%; height:360px; resize:vertical; border-radius:12px; padding:12px; border:1px solid var(--line); background:#0f1624; color:var(--fg); font-size:13px; line-height:1.55; }
+    textarea { width:100%; height:360px; resize:vertical; border-radius:12px; padding:12px; border:1px solid var(--line); background:#0f1624; color:var(--fg-sub); font-size:13px; line-height:1.65; }
     .two { display:grid; grid-template-columns: 1fr; gap:12px; }
     .cal-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
     .cal-title { font-weight:700; letter-spacing:.2px; }
@@ -60,11 +88,42 @@
     .toast { margin-left:auto; font-size:12px; color: var(--muted); }
     .kbd { border:1px solid var(--line); padding:2px 6px; border-radius:6px; font-size:11px; background:#0f1624; color:var(--fg); }
     @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } textarea{ height: 300px; } }
+    .app-header{
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  padding:18px 24px;
+  border-radius:14px;
+  margin-bottom:16px;
+  box-shadow: 0 10px 30px rgba(37,99,235,.35);
+}
+
+.app-title{
+  margin:0;
+  color:#ffffff;
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
+.app-sub{
+  font-size:12px;
+  font-weight:500;
+  margin-left:8px;
+  opacity:.9;
+}
+  h1, h2, h3, h4{
+  color: var(--fg);
+}
+
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>スケジュール調整くん（9:00〜19:00 / 30分刻み・午前/午後/終日対応）</h1>
+    <header class="app-header">
+  < class="app-title">
+    スケジュール調整くん
+    <span class="app-sub">（9:00〜19:00 / 30分刻み / 午前・午後・終日対応）</span>
+  </>
+</header>
 
     <div class="grid">
       <!-- Left: Calendar -->
@@ -458,5 +517,6 @@
 </script>
 </body>
 </html>
+
 
 
